@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="em">
+<head>
+    <title>Donor Form</title>
+</head>
+<body>
+    <h3 style="text-align:center; color:red">Donor Information</h3>
+<form>
+    
+    <div><label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname"></div><br>
+    <div><label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname"></div><br>
+    <div><label for="company">Company:</label>
+    <input type="text" id="Company" name="Company"></div><br>
+    <div><label for="Address1">Address 1:</label>
+    <input type="text" id="Address1" name="Address1"></div><br>
+    <div><label for="Address2">Address 2:</label>
+    <input type="text" id="Address2" name="Address2"></div><br>
+    <div><label for="City">Select a City:</label>
+    <select name="City">
+        <option value="Dhaka" id="1">Dhaka</option>
+        <option value="Chattogram" id="2">Chattogram</option>
+        <option value="Rajshahi" id="3">Rajshahi</option>
+    </select></div><br>
+    <div>
+        <label for="Area">Choose Area:</label>
+    <select name="Area" id="1" size="3">
+        <option value="Mohammadpur">Mohammadpur</option>
+        <option value="Kuril">Kuril</option>
+        <option value="Khilgao">Khilgao</option>
+        <option value="Adabor">Adabor</option>
+        <option value="Banani">Banani</option>
+    </select>
+    </div><br>
+    <div>
+        <label for="Zip">Zip Code:</label>
+        <input type="number">
+    </div><br>
+    <div>
+        <label for="PN">Phone Number:</label>
+        <input type="number">
+    </div><br>
+    <div>
+        <label for="Amount">Please select Amount:</label>
+        <input type="radio">5$
+        <input type="radio">10$
+        <input type="radio">15$
+        <input type="radio">20$
+        <input type="radio">25$
+        <input type="radio">30$
+    </div><br>
+    <div>
+        <label for="OA">Other Amount $:</label>
+        <input type="number">
+    </div><br>
+
+    <h3 style="text-align:center; color:red">Honorarium and Memorial Donation Information</h3>
+    <div><label for="donation_for">I would like to make this Donation :</label><br>
+    <input type="radio"> To Honor <br>
+    <input type="radio"> In memory of</div><br>
+    <div><label for="name">Name: </label>
+    <input type="text"></div><br>
+    <div><label for="AD">Acknowledge Donation To: </label>
+    <input type="text"></div><br>
+    <div><label for="addreess">Address: </label>
+    <input type="text"></div><br>
+    <div><label for="City">City: </label>
+    <input type="text"></div><br>
+    <div><label for="State">State : </label>
+    <select name="State" >
+        <option value="State">Select A State</option> 
+    </select></div><br>
+    <div>
+        <label for="Zip">Zip Code:</label>
+        <input type="number">
+    </div><br>
+    <h3 style="text-align:center; color:red">Additional Information</h3>
+    <p>Please enter your name, company or organization as you would like it to appear in our publications</p>
+    <div><label for="name">Name: </label>
+    <input type="text"></div><br>
+    <div><input type="checkbox">I want my gift to remain anonymous.<br>
+    <input type="checkbox">My employer offers a matching gift programme. I will mail the matching gift form.<br>
+    <input type="checkbox">Please save the cost of acknowledging this gift by not mailing a thank you letter.</div><br>
+<div><label for="comment">Comments: </label>
+<input type="comment"></div><br>
+<div><label for="CI">How may we contact you: </label><br>
+<input type="checkbox">E-mail <br>
+<input type="checkbox">postal mail <br>
+<input type="checkbox">Telephone <br>
+<input type="checkbox">Fax</div><br>
+
+<button type="reset">Reset</button>
+<button type="submit">Continue</button>
+
+</form>    
+</body>
+</html>
