@@ -57,7 +57,7 @@ if(isset($_POST["login"])){
     {echo $_COOKIE['pass'];} ?>"><br><br>
     <input type = "checkbox" name = "remember" <?php if(isset($_COOKIE['username'])) {echo "checked";} ?>>Remember Me<br><br>
     <input type = "submit" name = "login" value = "Login">
-    <a href="">Forgot Password?<br>
+    <a href="forgot_password.php">Forgot Password?<br>
 
     <?php
         if(isset($message)){
