@@ -7,18 +7,15 @@
 	<title>Patient Corner</title>
 </head>
 <body>
-	<h1 style="font: sans-serif; color: darkgoldenrod;">Patient Corner</h1>
-<style>
-table, th, td {border:1px solid black;  border-collapse: collapse;padding-right: 40px;}
-</style>
-<table>
+	<h1>Patient Corner</h1>
+<table class="pt">
 	<tr>
 		<th>Serial No.</th>
 		<th>Name</th>
 		<th>Age</th>
 		<th>Gender</th>
 		<th>Patient Type</th>
-		<th colspan="2">Status</th>
+		<th colspan="3">Edit info</th>
 	</tr>
 		<tr>
 		<td>01</td>
@@ -76,11 +73,8 @@ table, th, td {border:1px solid black;  border-collapse: collapse;padding-right:
 		
 	</tr>
 </table>
-<h1 style="font: sans-serif; color: darkgoldenrod;">Pending Requests</h1>
-<style>
-table, th, td {border:1px solid black;  border-collapse: collapse;padding-right: 40px;}
-</style>
-<table>
+<h1 style="font: sans-serif;">Pending Requests</h1>
+<table class="pt">
 	<tr>
 		<th>Serial No.</th>
 		<th>Name</th>
@@ -142,3 +136,20 @@ table, th, td {border:1px solid black;  border-collapse: collapse;padding-right:
 </table>
 </body>
 </html>
+<style>
+	body{
+		background-color: #f0b3ff;
+	}
+	h1{
+		text-align: center;
+		font: sans-serif;
+	}
+	table, th, td {border:1px solid black;  border-collapse: collapse;padding-right: 40px;}
+	.pt{
+		margin-right: auto;
+		margin-left: auto;
+		font: sans-serif;
+		font-size: 20px;
+	}
+
+</style>

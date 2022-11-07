@@ -7,11 +7,16 @@
   display: grid;
   grid-template-columns: auto auto;
 }
+body{
+  background-color: #99d6ff;
+  font: sans-serif;
+  font-size: 25px;
+}
 </style> 
 </head>  
 <body>
 <?php 
-include 'header&footer.php';
+include 'C:/xampp/htdocs/Mid Project/View/header.html';
 session_start();
 
 if (isset($_SESSION['name'])){require '=Dashboard.php';}

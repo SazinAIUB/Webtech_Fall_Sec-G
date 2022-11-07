@@ -16,7 +16,7 @@ session_start();
         color: black;
     }
     body{
-        background: olive;
+        background-color: #99d6ff;
     }
     a{
         font: sans-serif;
@@ -34,6 +34,8 @@ session_start();
 <td><a href="../View/patientlist.php">Patient Info</a></td>
 <td><a href="../View/doctorslist.php">Doctor's Info</a></td>
 <td><a href="../View/providepres.php">Provide Prescription</a></td>
+<td><a href="../Controller/view_profile.php">View Profile</a></td>
+<td><a href="../Controller/logout.php">Logout</a></td>
 
 </tr>
 </table>

@@ -7,11 +7,8 @@
 	<title>Available Doctors List</title>
 </head>
 <body>
-<h1 style="font: sans-serif; color: darkgoldenrod;">Pending Requests</h1>
-<style>
-table, th, td {border:1px solid black;  border-collapse: collapse;padding-right: 40px;}
-</style>
-<table>
+<h1>Available Doctor's List</h1>
+<table class="dr">
 	<tr>
 		<th>Serial No.</th>
 		<th>Name</th>
@@ -60,3 +57,20 @@ table, th, td {border:1px solid black;  border-collapse: collapse;padding-right:
 </table>
 </body>
 </html>
+
+<style>
+	body{
+		background-color: #d9ffb3;
+	}
+	h1{
+		font: sans-serif;
+		text-align: center;
+	}
+	table, th, td {border:1px solid black;  border-collapse: collapse;padding-right: 40px;}
+	.dr{
+		margin-right: auto;
+		margin-left: auto;
+		font: sans-serif;
+		font-size: 20px;
+	}
+</style>

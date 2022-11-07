@@ -6,7 +6,7 @@
 	<title> Job Application </title>
 </head>
 <body>
-		<h1 style="background-color:Tomato;" align="center">Job Application Form</h1>
+		<h1>Job Application Form</h1>
  <form action="ApplyJob.php" method="post">
 
    Name: <input type="text" name="Name" id="Name" placeholder="Enter your name: "> <br><br>
@@ -24,3 +24,16 @@
  </form>
 </body>
 </html>
+
+<style>
+  form,input{
+    font: serif;
+    font-size: 30px;
+  }
+  h1{
+    text-align: center;
+  }
+  body{
+    background-color: #ff8c66;
+  }
+</style>

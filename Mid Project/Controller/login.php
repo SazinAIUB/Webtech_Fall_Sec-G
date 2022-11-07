@@ -1,89 +1,154 @@
-<?php
-include 'header&footer.php';
-$message = $error = "";
-if(isset($_POST["login"])){
-    if(empty($_POST["name"])){
-        $error = "Username Cannot be empty";
-    }
-    else if(empty($_POST["pass"])){
-        $error = "Password Cannot be empty";
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+
+<?php 
+session_start();
+if (isset($_SESSION['user_name'])){header("location:Dashboard.php");}
+else
+{
+  require 'header&footer.php';
+}
+
+$username="admin";
+$userpassword="admin";
+
+if (isset($_POST['user_name'])) {
+    if ($_POST['user_name']==$username && $_POST['password']==$userpassword) {
+        $_SESSION['user_name'] = $username;
+        header("location:Dashboard.php");
     }
     else{
-        if(file_exists('data.json')){
-            $data = file_get_contents("data.json");
-            $data = json_decode($data, true);
-            foreach($data as $item){
-                if($item["username"]==$_POST["name"] && $item["pass"]==$_POST["pass"]){                    
-                    session_start();                    
-
-                    $name =$_POST["name"];
-
-                    $_SESSION['name'] = $name;
-                    header("../View/Dashboard.php");                    
-                }
-                else{
-                    $error = "Incorrect username or password";
-      
-                }
-            }
-        }
     }
 }
-?>
+$user_nameErr = $passwordErr = "";
+$user_name = $password = "";
+$message = $error="";
 
-<!DOCTYPE html>
-<head>  
-    <title>Login</title>  
-  
-</head> 
-<body>  
-<style>
-.error {color: red;}
-</style>
-<div class="container" style="width: 500px; height: 50%;"> 
-<br><br>
-<form action="" method="post">
-    <?php
-        if(isset($error)){
-            echo $error;
-        }
-    ?>
-<fieldset>
-    <h1>LOGIN </h1><br><br>
-    <label>User Name :</label>
-    <input type = "text" name = "name" class="form-control" value="<?php if(isset($_COOKIE['name'])) {echo $_COOKIE['name'];} ?>"><br>
-    <label>Password  :</label>
-    <input type = "password" name = "pass" class="form-control" value="<?php if(isset($_COOKIE['pass']))
-    {echo $_COOKIE['pass'];} ?>"><br><br>
-    <input type = "checkbox" name = "remember" <?php if(isset($_COOKIE['username'])) {echo "checked";} ?>>Remember Me<br><br>
-    <input type = "submit" name = "login" value = "Login">
-    <a href="forgot_password.php">Forgot Password?<br>
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+  if (empty($_POST["user_name"])) 
+  {
+    $user_nameErr = "Name is required";
+  } 
+  else 
+  {
+    $user_name = test_input($_POST["user_name"]);
+    if (!preg_match("/^[a-zA-Z-.' ]*$/",$user_name))
+    {
+      $user_nameErr = "Only letters, white space, period, dash allowed";
+      $user_name="";
+    }
+    else if (str_word_count($user_name)<2 ) 
+    {
+      $user_nameErr = "Minimum two words";
+      $user_name="";
+    }
+    else if($_POST['user_name']!=$username )
+    {
+      $user_nameErr="User Name invalid";
+    }
+  }
 
-    <?php
+  if (empty($_POST["password"])) 
+  {
+    $passwordErr = "Password is required";
+  } 
+  else 
+  {
+    $password = test_input($_POST["password"]);
+    if (strlen($password) <= 3)
+    {
+      $passwordErr = "Must be atleast 3 characters";
+      $password="";
+    }
+
+    else if($_POST['password']!=$userpassword)
+    {
+      $passwordErr="Password invalid";
+    }
+  }
+}
+
+function test_input($data) 
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+ ?>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" >
+ <fieldset>
+  <h1>LOGIN</h1>
+  <img src="../Controller/image/login.png" alt="Sorry image couldn't load"><br>
+  <hr>
+  <label for="user_name">User name :</label>
+  <input type="text" id="user_name" name="user_name"><?php if (isset($_COOKIE['user_name'])) {
+    echo $_COOKIE['user_name'];
+  } ?>
+  <span class="error"> <?php echo $user_nameErr;?></span>
+  <br><br>
+
+  <label for="password">Password :</label>
+  <input type="password" id="password" name="password"><?php if (isset($_COOKIE['password'])) {
+    echo$_COOKIE['password'];
+  } ?>
+  <span class="error"> <?php echo $passwordErr;?></span>
+  <br><br>
+
+<hr>
+
+  <input type="checkbox" id="remember_me" name="remember_me"><?php if(isset($_COOKIE['user_name'])){
+    echo "checked";
+  } ?>
+  <label for="remember_me">Remember Me</label><br><br>
+
+  <input type="submit" value="Submit"><a href="forgot_password.php">Forgot Password?</a>
+
+ </fieldset>
+     <?php
         if(isset($message)){
             echo $message;
         }
 
         if (!empty($_POST['remember'])) {
-            setcookie("name", $_POST['name'], time()+10);
-            setcookie("pass", $_POST['pass'], time()+10);                
+            setcookie("user_name", $_POST['user_name'], time()+10);
+            setcookie("password", $_POST['password'], time()+10);                
         }else{
-            setcookie("name", "");
-            setcookie("pass", "");
+            setcookie("user_name", "");
+            setcookie("password", "");
         }
     ?>
-</form>
+</form>   
 </body>
 </html>
 
-<style type="text/css">
-    fieldset{
-        margin: 0 auto;
-    }
-    label{
-        font-size: 30px;
-    }
-    input{
-        font-size: 30px;
-    }
+<style>
+.error {
+    color: #FF0000;
+}
+fieldset{
+  border: 1px solid;
+  width: 50%;
+  font: serif;
+  font-size: 25px;
+  position: absolute;
+  margin-left: 450px;
+
+}
+body{
+    background-color: tomato;
+}
+label,input{
+    font: serif;
+    font-size: 25px;
+    
+}
+img{
+    margin-left: 350px;
+}
 </style>
